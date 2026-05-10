@@ -1,0 +1,14 @@
+{
+  "name": "mper-runtime",
+  "version": "0.1.0",
+  "description": "Minimal MPER runtime prototype for persona-driven emotion rendering.",
+  "type": "commonjs",
+  "private": true,
+  "scripts": {
+    "run": "node src/index.js personas/sample_persona.json",
+    "inspect": "node src/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
