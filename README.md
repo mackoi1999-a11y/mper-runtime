@@ -14,3 +14,5 @@ Experimental emotional runtime system for AI-driven personas.
 ## Current Status
 
 Early prototype / research phase.
+
+See: [Project Brief](docs/PROJECT_BRIEF.md)
