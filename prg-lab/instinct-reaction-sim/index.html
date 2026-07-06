@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instinct Reaction Sim - MPER PRG Lab</title>
+    <link rel="stylesheet" href="src/ui/styles.css">
+</head>
+<body>
+<div class="app-container">
+        <!-- ヘッダー -->
+        <header class="app-header">
+            <h1>数値刺激に対する本能反応シミュレーション</h1>
+            <p>0〜10の刺激数値に対するキャラクターたちの個性的・直感的な接近／逃走反応を観測します。</p>
+        </header>
+
+        <!-- メインレイアウト -->
+        <div class="main-layout">
+            <!-- 右カラム：シミュレーションエリア ＆ 操作ドッキングパネル （★スマホ時はこちらが自動的に一番上に表示されます） -->
+            <div class="right-column">
+                <section class="card" style="height: 100%;">
+                    <h2>2Dシミュレーションエリア</h2>
+                    
+                    <!-- 2Dグラフィック -->
+                    <div class="sim-area-container">
+                        <div id="sim-area" class="sim-area">
+                            <div class="player">PLAYER</div>
+                            <!-- キャラクターDOMが追加される -->
+                        </div>
+                    </div>
+                    
+                    <!-- 凡例表示 -->
+                    <div class="sim-legend">
+                        <div><span class="legend-color" style="background-color: var(--color-like);"></span> Like (近づく)</div>
+                        <div><span class="legend-color" style="background-color: var(--color-dislike);"></span> Dislike (逃げる)</div>
+                        <div><span class="legend-color" style="background-color: var(--color-neutral);"></span> Neutral (留まる)</div>
+                        <div><span class="legend-color" style="background-color: var(--color-unknown);"></span> Unknown (彷徨う)</div>
+                    </div>
+
+                    <!-- 刺激決定キーボード（★2Dカードのすぐ真下に一体化！） -->
+                    <div class="input-section" id="input-section-node">
+                        <label>刺激数値を選択 (0〜10) :</label>
+                        <div class="number-buttons" id="number-buttons-container">
+                            <!-- JSで生成 -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 左カラム：操作パネル ＆ キャラクター個性一覧 -->
+            <div class="left-column" style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- コントロールカード -->
+                <section class="card">
+                    <h2>コントロール</h2>
+                    <div class="button-group">
+                        <button class="btn btn-create" id="btn-create">＋ キャラクター作成</button>
+                        <button class="btn btn-reset" id="btn-reset">↺ リセット</button>
+                    </div>
+                </section>
+
+                <!-- 個性一覧カード -->
+                <section class="card">
+                    <h2>
+                        <span>キャラクター個性 <span class="char-count" id="char-count-badge">0体</span></span>
+                        <button class="btn-copy" id="btn-toggle-prefs" style="background-color: #6366f1;">👁️ 個性を覗く</button>
+                    </h2>
+                    <div class="character-list-section">
+                        <div id="character-list" class="character-list">
+                            <!-- JSで生成 -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- 下部：ログ表示 -->
+        <section class="card">
+            <h2 style="justify-content: space-between;">
+                <span>シミュレーションログ</span>
+                <button class="btn-copy" id="btn-copy-log">📋 ログをコピー</button>
+            </h2>
+            <div id="log-container" class="log-container">
+                <div class="log-placeholder">数値ボタンを押すと、各キャラクターの反応ログがここにリアルタイムで表示されます。</div>
+            </div>
+        </section>
+    </div>
+    <script src="src/data/config.js"></script>
+    <script src="src/core/PreferenceMap.js"></script>
+    <script src="src/core/CharacterModel.js"></script>
+    <script src="src/core/ReactionPipeline.js"></script>
+    <script src="src/core/KnowledgeDomain.js"></script>
+    <script src="src/core/ClassificationTreatment.js"></script>
+    <script src="src/core/BehaviorExecutor.js"></script>
+    <script src="src/core/LogSystem.js"></script>
+    <script src="src/ui/app.js"></script>
+</body>
+</html>
